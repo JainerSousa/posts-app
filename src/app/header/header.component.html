@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span><a routerLink="/">MyMessages</a></span>
+    <span class="spacer"></span>
+    <ul>
+      <li *ngIf="isAuthenticated">
+        <a mat-button routerLink="/create" routerLinkActive="mat-accent"
+          >New Post</a
+        >
+      </li>
+      <li *ngIf="!isAuthenticated">
+        <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent"
+          >Signup</a
+        >
+      </li>
+      <li *ngIf="!isAuthenticated">
+        <a mat-button routerLink="/auth/login" routerLinkActive="mat-accent"
+          >Login</a
+        >
+      </li>
+      <li *ngIf="isAuthenticated">
+        <button mat-button (click)="onLogout()">Logout</button>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <p style="font-size: 60%;">
+      By
+      <a
+        href="https://www.linkedin.com/in/jainer-sousa-46a6011a1/"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Jainer Sousa <span class="material-icons"> contact_mail </span></a
+      >
+    </p>
+  </mat-toolbar-row>
+</mat-toolbar>

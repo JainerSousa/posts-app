@@ -1,0 +1,56 @@
+<h2 *ngIf="mode === 'create'; else edit">Create new post</h2>
+<ng-template #edit>
+  <h2>Update post: {{ postToEdit?.title }}</h2>
+</ng-template>
+
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+
+<form (ngSubmit)="onSavePost()" [formGroup]="postForm" *ngIf="!isLoading">
+  <mat-card>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        placeholder="Post Title"
+        formControlName="title"
+      />
+      <mat-error *ngIf="postForm.get('title').invalid">
+        Please enter a post title!
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <!-- <button type="button" mat-stroked-button (click)="filePicker.click()" >Pick Image</button>
+      <input type="file" #filePicker (change)="onImagePicked($event)"> -->
+      <mat-form-field>
+        <input
+        type="text"
+        matInput
+        placeholder="Image URL"
+        formControlName="image"
+        (change)="onImageUrlChange()"
+      />
+      </mat-form-field>
+    </div>
+    <div
+      class="image-preview"
+      *ngIf="imagePreview !== '' && imagePreview && postForm.get('image').valid"
+    >
+      <img [src]="imagePreview" [alt]="postForm.value.title" />
+    </div>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="6"
+        placeholder="Post Content"
+        formControlName="content"
+      ></textarea>
+      <mat-error *ngIf="postForm.get('content').invalid">
+        Please enter a post content!
+      </mat-error>
+    </mat-form-field>
+
+    <button color="accent" mat-raised-button type="submit">Save Post</button>
+  </mat-card>
+</form>

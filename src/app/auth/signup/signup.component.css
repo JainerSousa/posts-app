@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+mat-form-field {
+  display: block;
+  margin: 1rem auto;
+}
+
+mat-spinner {
+  margin: auto;
+}

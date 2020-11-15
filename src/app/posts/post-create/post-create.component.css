@@ -1,0 +1,36 @@
+mat-card {
+  margin: auto;
+}
+
+mat-form-field,
+textarea {
+  width: 100%;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+}
+
+.image-preview img {
+  display: block;
+  height: 100%;
+  transition: all 0.5s ease-in;
+}
+
+.image-preview img:hover {
+  transform: translateX(50px) rotate(360deg) scale(2);
+  box-shadow: 3px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* .mat-raised-button {
+  background-color: red !important;
+} */
